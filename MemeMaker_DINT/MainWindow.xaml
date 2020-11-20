@@ -1,0 +1,63 @@
+﻿<Window x:Class="MemeMaker_DINT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MemeMaker_DINT"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Margin" Value="5,5,10,5"/>
+            <Setter Property="Height" Value="15"/>
+        </Style>
+        <Style TargetType="Slider">
+            <Setter Property="Maximum" Value="1000"/>
+            <Setter Property="Minimum" Value="100"/>
+            <Setter Property="Value" Value="500"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="500"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Texto Superior" Grid.Row="0" Grid.Column="0"/>
+            <TextBlock Text="Texto Inferior" Grid.Row="1" Grid.Column="0"/>
+            <TextBlock Text="Alto" Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Text="Ancho" Grid.Row="3" Grid.Column="0"/>
+            <TextBlock Text="Imagen" Grid.Row="4" Grid.Column="0"/>
+            <TextBlock Text="Borde" Grid.Row="5" Grid.Column="0"/>
+            <TextBox x:Name="textoSuperiorTextBox" Text="Texto Superior" Grid.Column="1" Grid.Row="0"/>
+            <TextBox x:Name="textoInferiorTextBox" Text="Texto Inferior" Grid.Column="1" Grid.Row="1"/>
+            <TextBox x:Name="imagenTextBox" Grid.Column="1" Grid.Row="4"/>
+            <Slider x:Name="altoSlider" Grid.Column="1" Grid.Row="2"/>
+            <Slider x:Name="anchoSlider" Grid.Column="1" Grid.Row="3"/>
+            <CheckBox x:Name="bordeCheckBox" IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="5"/>
+        </Grid>
+        <Grid>
+            <Image/>
+            <TextBlock/>
+            <TextBlock/>
+        </Grid>
+    </DockPanel>
+</Window>
