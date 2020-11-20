@@ -26,6 +26,17 @@
             <Setter Property="Width" Value="500"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
+        <Style TargetType="TextBlock" x:Key="memeTextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect/>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <DockPanel>
         <Grid DockPanel.Dock="Top">
@@ -54,10 +65,12 @@
             <Slider x:Name="anchoSlider" Grid.Column="1" Grid.Row="3"/>
             <CheckBox x:Name="bordeCheckBox" IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="5"/>
         </Grid>
-        <Grid>
-            <Image/>
-            <TextBlock/>
-            <TextBlock/>
-        </Grid>
+        <Border HorizontalAlignment="Center" BorderBrush="Black"BorderThickness="{Binding ElementName=bordeCheckBox,Path=IsChecked,UpdateSourceTrigger=PropertyChanged}">
+            <Grid>
+                <Image Height="{Binding ElementName=altoSlider}" Width="{Binding ElementName=anchoSlider}" Source="{Binding ElementName=imagenTextBox,Path=Text,UpdateSourceTrigger=PropertyChanged}" Stretch="Fill" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding ElementName=textoSuperiorTextBox, Path=Text,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource memeTextBlock}"/>
+                <TextBlock Text="{Binding ElementName=textoInferiorTextBox,Path=Text, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" Style="{StaticResource memeTextBlock}"/>
+            </Grid>
+        </Border>
     </DockPanel>
 </Window>
