@@ -37,7 +37,9 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <local:BordeConverter x:Key="conversor"></local:BordeConverter>
     </Window.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
     <DockPanel>
         <Grid DockPanel.Dock="Top">
             <Grid.ColumnDefinitions>
@@ -65,12 +67,13 @@
             <Slider x:Name="anchoSlider" Grid.Column="1" Grid.Row="3"/>
             <CheckBox x:Name="bordeCheckBox" IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="5"/>
         </Grid>
-        <Border HorizontalAlignment="Center" BorderBrush="Black"BorderThickness="{Binding ElementName=bordeCheckBox,Path=IsChecked,UpdateSourceTrigger=PropertyChanged}">
+        <Border HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="{Binding ElementName=bordeCheckBox,Path=IsChecked,Converter={StaticResource conversor}}">
             <Grid>
-                <Image Height="{Binding ElementName=altoSlider}" Width="{Binding ElementName=anchoSlider}" Source="{Binding ElementName=imagenTextBox,Path=Text,UpdateSourceTrigger=PropertyChanged}" Stretch="Fill" HorizontalAlignment="Center"/>
+                <Image Height="{Binding ElementName=altoSlider,Path=Value}" Width="{Binding ElementName=anchoSlider,Path=Value}" Source="{Binding ElementName=imagenTextBox,Path=Text,UpdateSourceTrigger=PropertyChanged}" Stretch="Fill" HorizontalAlignment="Center"/>
                 <TextBlock Text="{Binding ElementName=textoSuperiorTextBox, Path=Text,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource memeTextBlock}"/>
                 <TextBlock Text="{Binding ElementName=textoInferiorTextBox,Path=Text, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" Style="{StaticResource memeTextBlock}"/>
             </Grid>
         </Border>
     </DockPanel>
+    </ScrollViewer>
 </Window>
