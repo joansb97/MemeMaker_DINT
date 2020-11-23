@@ -67,9 +67,9 @@
             <Slider x:Name="anchoSlider" Grid.Column="1" Grid.Row="3"/>
             <CheckBox x:Name="bordeCheckBox" IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="5"/>
         </Grid>
-        <Border HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="{Binding ElementName=bordeCheckBox,Path=IsChecked,Converter={StaticResource conversor}}">
+        <Border HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="{Binding ElementName=bordeCheckBox,Path=IsChecked,Converter={StaticResource conversor}}" Background="PaleVioletRed">
             <Grid>
-                <Image Height="{Binding ElementName=altoSlider,Path=Value}" Width="{Binding ElementName=anchoSlider,Path=Value}" Source="{Binding ElementName=imagenTextBox,Path=Text,UpdateSourceTrigger=PropertyChanged}" Stretch="Fill" HorizontalAlignment="Center"/>
+                <Image Height="{Binding ElementName=altoSlider,Path=Value}" Width="{Binding ElementName=anchoSlider,Path=Value}" Source="{Binding ElementName=imagenTextBox,Path=Text}" Stretch="Fill" HorizontalAlignment="Center"/>
                 <TextBlock Text="{Binding ElementName=textoSuperiorTextBox, Path=Text,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Style="{StaticResource memeTextBlock}"/>
                 <TextBlock Text="{Binding ElementName=textoInferiorTextBox,Path=Text, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" Style="{StaticResource memeTextBlock}"/>
             </Grid>
